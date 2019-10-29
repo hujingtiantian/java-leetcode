@@ -1,0 +1,5 @@
+abc.com	-
+abc.cn	+
+.abc.com	-
+abc.com.cn:8080	+
+www.abc.com	+

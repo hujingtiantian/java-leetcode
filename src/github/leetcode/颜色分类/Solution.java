@@ -32,7 +32,7 @@ import java.util.HashMap;
 public class Solution {
 
     public static void main(String[] args){
-        new Solution().sortColors(new int[]{1,2,0});
+        new Solution().sortColors1(new int[]{0,0});
     }
 
     /**
@@ -63,6 +63,35 @@ public class Solution {
                 nums[i] =2;
             }
         }
+    }
+
+    /**
+     * 三指针解法
+     * */
+    public void sortColors1(int[] nums) {
+        int pre = 0;
+        int cur = pre;
+        int post = nums.length -1;
+        while (cur <= post){
+            if(pre <= post && nums[pre] == 0){
+                pre++;
+                cur = pre;
+            }
+
+            if(cur <= post && nums[cur] == 0){
+                nums[cur] = nums[pre];
+                nums[pre] = 0;
+                cur++;
+                pre++;
+            }else if(cur <= post && nums[cur] == 1){
+                cur++;
+            }else if(cur <= post && nums[cur] == 2){
+                nums[cur] = nums[post];
+                nums[post] = 2;
+                post--;
+            }
+        }
+        System.out.println(nums);
     }
 
 

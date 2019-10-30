@@ -24,12 +24,46 @@ package github.leetcode.颜色分类;
  *
  * */
 
+import java.util.HashMap;
+
 /**
  * Created by hujingtian on 2019/10/29.
  */
 public class Solution {
 
-    public void sortColors(int[] nums) {
-
+    public static void main(String[] args){
+        new Solution().sortColors(new int[]{1,2,0});
     }
+
+    /**
+     * 明确只有0，1，2三个数，可以重写数组
+     * */
+    public void sortColors(int[] nums) {
+        HashMap<Integer,Integer> hashMap = new HashMap(3);
+        hashMap.put(0,0);
+        hashMap.put(1,0);
+        hashMap.put(2,0);
+        for(int num : nums){
+            switch (num){
+                case 0 : hashMap.put(0,hashMap.get(0)+1);break;
+                case 1 : hashMap.put(1,hashMap.get(1)+1);break;
+                case 2 : hashMap.put(2,hashMap.get(2)+1);break;
+            }
+        }
+        int n0 = hashMap.get(0);
+        int n1 = hashMap.get(1);
+        for (int i = 0 ; i < nums.length;i++){
+            if(n0 > 0){
+                n0--;
+                nums[i]=0;
+            }else if(n1>0){
+                n1--;
+                nums[i]=1;
+            }else {
+                nums[i] =2;
+            }
+        }
+    }
+
+
 }

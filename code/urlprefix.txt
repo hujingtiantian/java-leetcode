@@ -1,0 +1,5 @@
+https://www.abc.com/index.html	=	-
+http://www.abc.com/images/	*	+
+https://www.abc.com/	+	-
+//www.abc.com/index.html?opt=	+	+
+
